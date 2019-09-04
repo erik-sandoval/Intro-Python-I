@@ -45,11 +45,13 @@ print(f2(a))    # Should print 22
 # it returns that value plus 1. If two arguments, it returns the sum of the
 # arguments. Google "python default arguments" for a hint.
 
-# YOUR CODE HERE
+
+def f3(a, b=1):
+    return a + b
+
 
 print(f3(1, 2))  # Should print 3
 print(f3(8))     # Should print 9
-
 
 # Write a function f4 that accepts an arbitrary number of keyword arguments and
 # prints out the keys and values like so:
@@ -59,7 +61,13 @@ print(f3(8))     # Should print 9
 #
 # Google "python keyword arguments".
 
-# YOUR CODE HERE
+
+def f4(**kwargs):
+    args = dict(kwargs)
+
+    for k, v in args.items():
+        print(f"key: {k}, value: {v}")
+
 
 # Should print
 # key: a, value: 12
@@ -72,10 +80,8 @@ f4(a=12, b=30)
 # key: founded, value: "March 23, 1868"
 f4(city="Berkeley", population=121240, founded="March 23, 1868")
 
-d = {
-    "monster": "goblin",
-    "hp": 3
-}
+d = {"monster": "goblin", "hp": 3}
+
 
 # What thing do you have to add to make this work?
-f4(d)
+f4(**d)
